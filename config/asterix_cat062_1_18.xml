@@ -24,7 +24,7 @@
                                                      I062/380 STAT Field updated with values 6 and 7 to align with Cat. 020
 -->
 
-<Category id="62" name="SDPS Track Messages" ver="1.17">
+<Category id="62" name="SDPS Track Messages" ver="1.18">
 	
 	<DataItem id="010" rule="mandatory" >
 		<DataItemName>Data Source Identifier</DataItemName>	
