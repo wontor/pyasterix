@@ -472,7 +472,7 @@ class AsterixDecoder():
             if cn.nodeName not in ['Fixed', 'Repetitive', 'Variable', 'Compound']:
                 continue
 
-            if index not in indicator:
+            if index not in indicators:
                 index += 1
                 continue
 
