@@ -358,8 +358,7 @@ class AsterixDecoder():
         for itemid in itemids:
             for dataitem in self.dataitems:
                 if dataitem.getAttribute('id') == itemid:
-                    dataitemformat = dataitem.getElementsByTagName('DataItemFormat')[
-                        0]
+                    dataitemformat = dataitem.getElementsByTagName('DataItemFormat')[0]
                     for cn in dataitemformat.childNodes:
                         r = None
                         if cn.nodeName == 'Fixed':
@@ -385,8 +384,7 @@ class AsterixDecoder():
         data = int.from_bytes(_bytes, byteorder='big', signed=False)
 
         for bits in bitslist:
-            bit_name = bits.getElementsByTagName('BitsShortName')[
-                0].firstChild.nodeValue
+            bit_name = bits.getElementsByTagName('BitsShortName')[0].firstChild.nodeValue
 
             bit = bits.getAttribute('bit')
             if bit != '':
@@ -457,7 +455,7 @@ class AsterixDecoder():
         mask = 1 << (8 * indicator_octetslen - 1)
         indicator = 1
         for i in range(0, 8 * indicator_octetslen):
-            if i % 8 != 7:  # i is FX
+            if i % 8 == 7:  # i is FX
                 continue
 
             if indicator_octets & (mask >> i) > 0:
@@ -472,7 +470,7 @@ class AsterixDecoder():
             if cn.nodeName not in ['Fixed', 'Repetitive', 'Variable', 'Compound']:
                 continue
 
-            if index not in indicator:
+            if index not in indicators:
                 index += 1
                 continue
 
